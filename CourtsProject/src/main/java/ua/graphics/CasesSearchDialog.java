@@ -113,6 +113,7 @@ public class CasesSearchDialog extends JDialog {
 		scrollPane.setFont(scrollPane.getFont().deriveFont(scrollPane.getFont().getSize() + 5f));
 		
 		 button_2 = new JButton("Пошук");
+		 button_2.setToolTipText("Пошук серед завантажених справ. ");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -154,7 +155,8 @@ public class CasesSearchDialog extends JDialog {
 			}
 		});
 		
-		JButton button_4 = new JButton("Очистити");
+		JButton button_4 = new JButton("Очистити список");
+		button_4.setToolTipText("Видалити всі справи з даного списку. ");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CaseRepository caseRep = run.getBean(CaseRepository.class);
@@ -165,6 +167,7 @@ public class CasesSearchDialog extends JDialog {
 		});
 		
 		JButton button_6 = new JButton("Додати в обране");
+		button_6.setToolTipText("Додати справу в список Обраних.");
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<Cases> listtt = new VisualLogic().findAll(run);
@@ -175,7 +178,7 @@ public class CasesSearchDialog extends JDialog {
 				}
 				String cas = (String) table.getValueAt(row, 2);
 				String date = table.getValueAt(row, 0).toString();
-				System.out.println(cas);
+			
 				Cases casesTemp = null;
 				for (Cases i : listtt) {
 					if (i.getNumber().toString().equals(cas) && i.getDate().toString().equals(date)) {
@@ -203,6 +206,7 @@ public class CasesSearchDialog extends JDialog {
 				JOptionPane.showMessageDialog(null, "Додано!");
 			}
 		});
+		test.setToolTipText("Оберіть суд, чиї справи будуть завантажені.");
 		
 		 
 		test.addActionListener(new ActionListener() {
@@ -234,21 +238,22 @@ public class CasesSearchDialog extends JDialog {
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addComponent(label)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 219, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_2)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_4)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(button_6)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(test)
-					.addGap(131))
-				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addComponent(label)
+							.addGap(18)
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(button_2, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(button_4)
+							.addGap(18)
+							.addComponent(button_6)
+							.addGap(18)
+							.addComponent(test))
+						.addGroup(gl_contentPanel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
 		gl_contentPanel.setVerticalGroup(
@@ -257,13 +262,13 @@ public class CasesSearchDialog extends JDialog {
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(label)
 						.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(button_2)
-							.addComponent(button_4)
+							.addComponent(test)
 							.addComponent(button_6)
-							.addComponent(test)))
+							.addComponent(button_4)
+							.addComponent(button_2)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
 					.addGap(4))
 		);
 		contentPanel.setLayout(gl_contentPanel);

@@ -57,6 +57,11 @@ public class FirstPage extends JFrame {
 	private SelectedCasesTableModel model;
 	JButton btnNewButton;
 	private CasesSearchDialog tcsd;
+	private JButton notatku;
+	private JButton button_1;
+	private JButton button_2;
+	private JButton btnNewButton_1;
+	private JButton button;
 
 	public class DateCellRenderer extends DefaultTableCellRenderer {
 
@@ -77,7 +82,8 @@ public class FirstPage extends JFrame {
 
 	public FirstPage(ConfigurableApplicationContext run) {
 		setTitle("Судовий помічник ");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(FirstPage.class.getResource("/ua/projectResources/icon.png")));
+		setIconImage(
+				Toolkit.getDefaultToolkit().getImage(FirstPage.class.getResource("/ua/projectResources/icon.png")));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 970, 573);
@@ -134,7 +140,6 @@ public class FirstPage extends JFrame {
 		btnNewButton = new JButton("Пошук");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
 
 				tcsd = new CasesSearchDialog(run, new FirstPage(run));
 				if (!tcsd.isVisible()) {
@@ -161,7 +166,7 @@ public class FirstPage extends JFrame {
 			}
 		});
 
-		JButton btnNewButton_1 = new JButton("Видалити ");
+		btnNewButton_1 = new JButton("Видалити ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -185,12 +190,12 @@ public class FirstPage extends JFrame {
 			}
 		});
 
-		JButton button = new JButton("Відслідкувати");
+		button = new JButton("Відслідкувати");
 		button.setToolTipText(
 				"Вказати відомості про справу, для повідомлення після того, як вона буде призначена до розгляду.");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				CasesToFindFrame ctf = new CasesToFindFrame(run);
 				ctf.setVisible(true);
 
@@ -199,8 +204,8 @@ public class FirstPage extends JFrame {
 
 		///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		JButton button_1 = new JButton("Нотатки");
-		button_1.addActionListener(new ActionListener() {
+		notatku = new JButton("Нотатки");
+		notatku.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<SelectedCases> listSelecCas = new VisualLogic().findAllSelectedCases(run);
 				int row = table.getSelectedRow();
@@ -223,7 +228,7 @@ public class FirstPage extends JFrame {
 			}
 		});
 
-		JButton button_2 = new JButton("Календар");
+		button_2 = new JButton("Календар");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CalendarMainWindow cmw = new CalendarMainWindow(run);
@@ -231,8 +236,8 @@ public class FirstPage extends JFrame {
 			}
 		});
 
-		JButton button_3 = new JButton("Очистити");
-		button_3.addActionListener(new ActionListener() {
+		button_1 = new JButton("Очистити");
+		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<SelectedCases> listSelecCas = new VisualLogic().findAllSelectedCases(run);
 				SelectedCasesRepository selCasRep = run.getBean(SelectedCasesRepository.class);
@@ -244,72 +249,35 @@ public class FirstPage extends JFrame {
 
 			}
 		});
-
-		JButton button_4 = new JButton("New button");
-
-		JButton button_5 = new JButton("New button");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(10)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(264)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(button_5)
-									.addGap(607))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(button_3)
-									.addGap(124)))
-							.addComponent(button_2)
-							.addGap(6)
-							.addComponent(btnNewButton_1)
-							.addGap(6)
-							.addComponent(button_1)
-							.addGap(6)
-							.addComponent(button)
-							.addGap(6)
-							.addComponent(btnNewButton))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
-							.addGap(274)))
-					.addGap(13))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(button_4, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
-					.addGap(26)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(11)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(button_5)
-								.addComponent(button_2)
-								.addComponent(btnNewButton_1)
-								.addComponent(button_1)
-								.addComponent(button)
-								.addComponent(btnNewButton)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(button_3)))
-					.addGap(11))
-		);
+		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addGroup(gl_contentPane
+				.createSequentialGroup().addContainerGap(10, Short.MAX_VALUE)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 931, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup().addComponent(btnNewButton_1)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED).addComponent(button_2).addGap(97)
+								.addComponent(notatku).addGap(6).addComponent(button))
+						.addComponent(btnNewButton))
+				.addGap(13)));
+		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
+				.createSequentialGroup().addComponent(btnNewButton).addPreferredGap(ComponentPlacement.RELATED)
+				.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 480, GroupLayout.PREFERRED_SIZE).addGap(11)
+				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(button_2)
+								.addComponent(button_1).addComponent(btnNewButton_1))
+						.addComponent(notatku).addComponent(button))));
 		contentPane.setLayout(gl_contentPane);
 
-		///////////////////////////////////////////////////////////////////////////////////////////////////////
 		gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup().addComponent(button_3)
+								.addGroup(gl_contentPane.createSequentialGroup().addComponent(button_1)
 										.addPreferredGap(ComponentPlacement.RELATED).addComponent(button_2)
 										.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_1)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(button_1)
+										.addPreferredGap(ComponentPlacement.RELATED).addComponent(notatku)
 										.addPreferredGap(ComponentPlacement.RELATED).addComponent(button)
 										.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton))
 								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE))
@@ -319,8 +287,8 @@ public class FirstPage extends JFrame {
 						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
 						.addPreferredGap(ComponentPlacement.UNRELATED)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(btnNewButton)
-								.addComponent(button).addComponent(button_1).addComponent(btnNewButton_1)
-								.addComponent(button_2).addComponent(button_3))
+								.addComponent(button).addComponent(notatku).addComponent(btnNewButton_1)
+								.addComponent(button_2).addComponent(button_1))
 						.addContainerGap()));
 
 		scrollPane.setViewportView(table);
@@ -328,6 +296,7 @@ public class FirstPage extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public class Refresh {
 
 		public void refresh(ConfigurableApplicationContext run) {
@@ -379,24 +348,77 @@ public class FirstPage extends JFrame {
 			}
 			scrollPane.setViewportView(table);
 			contentPane.setLayout(gl_contentPane);
-//			setLocationRelativeTo(null);
+			// setLocationRelativeTo(null);
+			GroupLayout gl_contentPane = new GroupLayout(contentPane);
+			gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+
+					.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10).addGroup(gl_contentPane
+									.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
+											.createSequentialGroup().addGap(264).addGroup(gl_contentPane
+													.createParallelGroup(Alignment.TRAILING)
+													.addGroup(gl_contentPane.createSequentialGroup().addGap(607))
+													.addGroup(gl_contentPane.createSequentialGroup()
+															.addComponent(button_1).addGap(124)))
+											.addComponent(button_2).addGap(6).addComponent(btnNewButton_1).addGap(6)
+											.addComponent(notatku).addGap(6).addComponent(button).addGap(6)
+											.addComponent(btnNewButton))
+									.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+											.addGap(274)))
+							.addGap(13)));
+			gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createSequentialGroup().addGap(26)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup().addGap(11)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+
+													.addComponent(button_2).addComponent(btnNewButton_1)
+													.addComponent(notatku).addComponent(button)
+													.addComponent(btnNewButton)))
+									.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(button_1)))
+							.addGap(11)));
+			contentPane.setLayout(gl_contentPane);
+			gl_contentPane = new GroupLayout(contentPane);
+			gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createSequentialGroup().addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_contentPane.createSequentialGroup().addComponent(button_1)
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(button_2)
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton_1)
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(notatku)
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(button)
+											.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnNewButton))
+									.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE))
+							.addGap(13)));
+			gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+					.addGroup(gl_contentPane.createSequentialGroup().addGap(26)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(btnNewButton)
+									.addComponent(button).addComponent(notatku).addComponent(btnNewButton_1)
+									.addComponent(button_2).addComponent(button_1))
+							.addContainerGap()));
+
+			scrollPane.setViewportView(table);
+			contentPane.setLayout(gl_contentPane);
 		}
 
 	}
 
-	@Scheduled(fixedDelay = 600000)
+	@Scheduled(fixedDelay = 60000)
 	public void refreshHourly() {
 
 		// ___________перевірка на перепризначення справ_____________
 		System.out.println("відбувається перевірка...");
 
 		TemporaryCasesRepository temporaryCasesRepository = run.getBean(TemporaryCasesRepository.class);
-		SelectedCasesRepository selCasRepository = run.getBean(SelectedCasesRepository.class);		
+		SelectedCasesRepository selCasRepository = run.getBean(SelectedCasesRepository.class);
 		List<SelectedCases> listSelectedCases = new VisualLogic().findAllSelectedCases(run);
 		List<Courts> courts = new VisualLogic().findAllCourts(run);
 		List<TemporaryCases> listTempCases = new VisualLogic().findAllTemporaryCases(run);
-		List<CasesToFind> listCasesToFind = new VisualLogic().findAllCasesToFind(run);
-		
 
 		ArrayList<Courts> arList = new ArrayList<Courts>();
 		Courts tempCourt = null;
@@ -435,6 +457,7 @@ public class FirstPage extends JFrame {
 					}
 				}
 			}
+			temporaryCasesRepository.delete(listTempCases);
 		} catch (Exception e) {
 			System.out.println("exception in parsing 1: First Page");
 			e.printStackTrace();
@@ -443,8 +466,11 @@ public class FirstPage extends JFrame {
 		// _________перевірка для списку відстежуваних справ_____________
 		Courts tempCourt1 = null;
 		String selectedCase = null;
-		SelectedCasesRepository selCas = run.getBean(SelectedCasesRepository.class);
+		SelectedCasesRepository selCasRep = run.getBean(SelectedCasesRepository.class);
 		CasesToFindRepository ctfr = run.getBean(CasesToFindRepository.class);
+		TemporaryCasesRepository temporaryCasesRepository2 = run.getBean(TemporaryCasesRepository.class);
+		
+		List<CasesToFind> listCasesToFind = new VisualLogic().findAllCasesToFind(run);
 
 		ArrayList<Courts> arList1 = new ArrayList<Courts>();
 
@@ -468,7 +494,7 @@ public class FirstPage extends JFrame {
 		try {
 			for (Courts arL : arList1) {
 				new ParsingTempCases().parse(run, arL);
-				System.out.println(arL);
+				System.out.println(arL.getName());
 				System.out.println("Парсінг для перевірки призначення справ із списку відстежуваних");
 			}
 
@@ -484,7 +510,7 @@ public class FirstPage extends JFrame {
 						sc.setType(tempCases.getType());
 						sc.setCourt(tempCases.getCourt());
 
-						selCas.save(sc);
+						selCasRep.save(sc);
 						selectedCase = listctf.getCasesToFind();
 						JOptionPane.showMessageDialog(null, selectedCase + " Додана в обрані.");
 						ctfr.delete(listctf);
@@ -493,7 +519,7 @@ public class FirstPage extends JFrame {
 				}
 			}
 
-			temporaryCasesRepository.delete(listTempCases);
+			temporaryCasesRepository2.delete(listTempCases);
 		} catch (Exception e) {
 			System.out.println("2 First Page");
 		}

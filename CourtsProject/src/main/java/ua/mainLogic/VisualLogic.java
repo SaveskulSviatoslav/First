@@ -28,9 +28,7 @@ public class VisualLogic {
 		try {
 			CaseRepository caseRepository = run.getBean(CaseRepository.class);
 			List<Cases> listCases = caseRepository.findAll();
-			for (Cases cases : listCases) {
-				System.out.println(cases);
-			}
+			
 			return listCases;
 
 		} catch (Exception e) {
@@ -57,7 +55,7 @@ public class VisualLogic {
 						|| cases.getNumber().toString().toLowerCase().contains(text.toLowerCase())
 						|| cases.getCourt().toString().toLowerCase().contains(text.toLowerCase())) {
 					listCases2.add(cases);
-					System.out.println(cases);
+					
 				}
 			}
 

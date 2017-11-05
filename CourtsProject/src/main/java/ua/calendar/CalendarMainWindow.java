@@ -34,8 +34,6 @@ public class CalendarMainWindow extends JFrame {
 
 	AwtCalendar calendar;
 
-//	@Autowired
-//	private ConfigurableApplicationContext run;
 
 	public CalendarMainWindow(ConfigurableApplicationContext run) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CalendarMainWindow.class.getResource("/ua/projectResources/calendar.png")));

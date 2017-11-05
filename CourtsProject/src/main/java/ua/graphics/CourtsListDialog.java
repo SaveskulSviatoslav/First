@@ -92,7 +92,7 @@ public class CourtsListDialog extends JDialog {
 				});
 				cancelButton.setActionCommand("Вихід");
 			}
-			okButton = new JButton("OK");
+			okButton = new JButton("Обрати");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				
@@ -102,7 +102,7 @@ public class CourtsListDialog extends JDialog {
 						return;
 					}
 					String cor = (String) table_1.getValueAt(row, 0);
-					System.out.println(cor);
+					
 					corTemp = null;
 					if(cor.equals("Путильський районний суд")){
 						JOptionPane.showMessageDialog(null, "Справи даного суду відсутні на сайті <Судова Влада>");
