@@ -13,16 +13,16 @@ import javax.swing.JTextPane;
 import javax.swing.GroupLayout.Alignment;
 
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
+
 import ua.entity.SelectedCases;
 import ua.mainLogic.VisualLogic;
 import ua.repository.SelectedCasesRepository;
 import java.awt.Toolkit;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class MemoFrame extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3891873203114525908L;
 
 	private JPanel contentPane;
@@ -79,31 +79,32 @@ public class MemoFrame extends JFrame {
 		scrollPane.setViewportView(textPane);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(10)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 541, GroupLayout.PREFERRED_SIZE)
-					.addGap(12))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(331, Short.MAX_VALUE)
-					.addComponent(button_1)
-					.addGap(18)
-					.addComponent(button)
-					.addGap(24))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+							.addGap(12))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(button_1)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(button)
+							.addContainerGap())))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(11)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 578, GroupLayout.PREFERRED_SIZE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
 					.addGap(6)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(button)
-						.addComponent(button_1)))
+						.addComponent(button_1))
+					.addGap(11))
 		);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 
 	}
-
 }

@@ -138,6 +138,7 @@ public class FirstPage extends JFrame {
 		scrollPane = new JScrollPane();
 
 		btnNewButton = new JButton("Пошук");
+		btnNewButton.setToolTipText("Пошук справи серед вже призначених. ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -167,6 +168,7 @@ public class FirstPage extends JFrame {
 		});
 
 		btnNewButton_1 = new JButton("Видалити ");
+		btnNewButton_1.setToolTipText("Видалити обрану справу.");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -192,7 +194,7 @@ public class FirstPage extends JFrame {
 
 		button = new JButton("Відслідкувати");
 		button.setToolTipText(
-				"Вказати відомості про справу, для повідомлення після того, як вона буде призначена до розгляду.");
+				"Почати відслідковувати справу, яка ще не призначена. ");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -205,6 +207,7 @@ public class FirstPage extends JFrame {
 		///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		notatku = new JButton("Нотатки");
+		notatku.setToolTipText("Створити нотатку для обраної справи. ");
 		notatku.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<SelectedCases> listSelecCas = new VisualLogic().findAllSelectedCases(run);
@@ -229,6 +232,7 @@ public class FirstPage extends JFrame {
 		});
 
 		button_2 = new JButton("Календар");
+		button_2.setToolTipText("Відкрити календар.");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CalendarMainWindow cmw = new CalendarMainWindow(run);
@@ -237,6 +241,7 @@ public class FirstPage extends JFrame {
 		});
 
 		button_1 = new JButton("Очистити");
+		button_1.setToolTipText("Видалити всі обрані справи.");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				List<SelectedCases> listSelecCas = new VisualLogic().findAllSelectedCases(run);
@@ -453,6 +458,11 @@ public class FirstPage extends JFrame {
 							selCases.setDate(tempCases.getDate());
 							selCasRepository.save(selCases);
 							System.out.println("date was changed " + selCases.getSides());
+							JOptionPane.showMessageDialog(null, selCases.getSides()+ " перепризначена на " + tempCases.getDate().toString().substring(8, 10)
+									+"."+ tempCases.getDate().toString().substring(5, 7)
+									+"."+ tempCases.getDate().toString().substring(0, 4)
+									+ " року");
+							new Refresh().refresh(run);
 						}
 					}
 				}

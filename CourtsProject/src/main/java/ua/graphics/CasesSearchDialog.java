@@ -15,6 +15,7 @@ import javax.swing.table.TableColumnModel;
 
 
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
 
 import ua.entity.Cases;
 import ua.entity.SelectedCases;
@@ -315,7 +316,7 @@ public class CasesSearchDialog extends JDialog {
 			colModel.getColumn(1).setPreferredWidth(90);
 			colModel.getColumn(0).setCellRenderer(new FirstPage(run).new DateCellRenderer());
 			colModel.getColumn(1).setPreferredWidth(70);
-			colModel.getColumn(2).setPreferredWidth(50);
+			colModel.getColumn(2).setPreferredWidth(70);
 			colModel.getColumn(3).setPreferredWidth(250);
 			colModel.getColumn(4).setPreferredWidth(250);
 			colModel.getColumn(5).setPreferredWidth(100);
